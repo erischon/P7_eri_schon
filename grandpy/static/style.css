@@ -46,7 +46,7 @@ main {
 }
 
 .search form {
-    display: none;
+    display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
@@ -72,10 +72,11 @@ main {
 }
 
 .answer {
-    display: grid;
+    display: none;
     grid-template-areas:
-    "google wiki"
-    "map map"
+    "google"
+    "wiki"
+    "map"
     ;
     margin: auto;
     max-width: 850px;
@@ -85,14 +86,14 @@ main {
     grid-area: google;
     background: #ebe8f0;
     margin: 1em;
-    padding: 1em;
+    padding: 2em;
 }
 
 .ans-wiki {
     grid-area: wiki;
     background:  #ebe8f0;
     margin: 1em;
-    padding: 1em;
+    padding: 2em;
 }
 
 .ans-map {
@@ -146,6 +147,13 @@ footer img {
 
     .head {
         text-align: left;
+    }
+
+    .answer {
+        grid-template-areas:
+        "google wiki"
+        "map map"
+        ;
     }
 
     footer {
