@@ -46,7 +46,7 @@ main {
 }
 
 .search form {
-    display: flex;
+    display: none;
     flex-direction: row;
     align-items: center;
     justify-content: center;
@@ -69,6 +69,38 @@ main {
     color: #fff;
     margin-left: 0.3em;
     cursor: pointer;
+}
+
+.answer {
+    display: grid;
+    grid-template-areas:
+    "google wiki"
+    "map map"
+    ;
+    margin: auto;
+    max-width: 850px;
+}
+
+.ans-google {
+    grid-area: google;
+    background: #ebe8f0;
+    margin: 1em;
+    padding: 1em;
+}
+
+.ans-wiki {
+    grid-area: wiki;
+    background:  #ebe8f0;
+    margin: 1em;
+    padding: 1em;
+}
+
+.ans-map {
+    grid-area: map;
+    margin: 1em;
+    border: 1px solid #5a5a5a;
+    background-image: url(../static/img/1607434712354.png);
+    height: 400px;
 }
 
 footer {
@@ -97,12 +129,12 @@ footer img {
 
 @media (min-width: 550px) {
 
-    html {
+    /* html {
         background: #aaaaaa;
-    }
+    } */
 
     body {
-        background: #ffffff;
+        /* background: #ffffff; */
         max-width: 900px;
         justify-content: space-between;
     }
