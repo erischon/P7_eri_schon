@@ -45,7 +45,7 @@ main {
     margin: 4em 0;
 }
 
-.search form {
+.search {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -71,8 +71,12 @@ main {
     cursor: pointer;
 }
 
-.answer {
+#answerElement {
     display: none;
+}
+
+.answer {
+    display: grid;
     grid-template-areas:
     "google"
     "wiki"
@@ -130,12 +134,7 @@ footer img {
 
 @media (min-width: 550px) {
 
-    /* html {
-        background: #aaaaaa;
-    } */
-
     body {
-        /* background: #ffffff; */
         max-width: 900px;
         justify-content: space-between;
     }
@@ -150,6 +149,7 @@ footer img {
     }
 
     .answer {
+        grid-template-columns: 50% 50%;
         grid-template-areas:
         "google wiki"
         "map map"
