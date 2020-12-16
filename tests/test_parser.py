@@ -14,8 +14,8 @@ def test_remove_punctuations():
     result_a = parser.punctuation("hop,hop, hop, zut: ça v;a plus! ..../_ super...")
     result_b = parser.punctuation("(c'est... top) #& par,ce === que j'ai-- \{réussi] à fa}ire( nimp)")
     result_c = parser.punctuation(";.,:!?=()[]{}\/")
-    assert result_a == "hop hop hop zut ça va plus super"
-    assert result_b == "c'est top parce que j'ai réussi à faire nimp"
+    assert result_a == "hophop hop zut ça va plus  super"
+    assert result_b == "c est top  parce  que j ai réussi à faire nimp"
     assert result_c == ""
 
 # # accents
