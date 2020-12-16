@@ -14,7 +14,6 @@ class Parser:
         value = re.sub(r'_', '', value)
         value = re.sub(r'\'', ' ', value)
         value = re.sub(r'[^\w\s]','', value)
-
         return value
 
 if __name__ == "__main__":
