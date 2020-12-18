@@ -20,13 +20,20 @@ def test_remove_punctuations():
     assert result_b == "c est top parce que j ai réussi à faire nimp"
     assert result_c == " "
 
-# tokenization + Stemming
+# tokenization
 def test_tokenization():
     """ """
     result_a = parser.tokenization("hop hop hop zut ça va plus super")
     result_b = parser.tokenization("c est top parce que j ai réussi à faire nimp")
-    assert result_a == "['hop', 'hop', 'hop', 'zut', 'ça', 'va', 'plus', 'super']"
-    assert result_b == "['est', 'top', 'parce', 'que', 'ai', 'réussi', 'faire', 'nimp']"
+    assert result_a == ['hop', 'hop', 'hop', 'zut', 'ça', 'va', 'plus', 'super']
+    assert result_b == ['est', 'top', 'parce', 'que', 'ai', 'réussi', 'faire', 'nimp']
+
+#stop words
+def test_remove_stop_words():
+    """ """
+    result_a = parser.remove_stopwords(['vives', 'toujours', 'puisque', 'orléans', 'pure', '16', 'camille'])
+    assert result_a == ['orléans', '16', 'camille']
+
 
 # # spacing
 # def test_remove_spacing():
@@ -34,10 +41,6 @@ def test_tokenization():
 
 # # accents
 # def test_remove_accents():
-#     pass
-
-# # stopwords
-# def test_remove_stopwords():
 #     pass
 
 # # class test
