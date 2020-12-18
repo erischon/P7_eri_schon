@@ -1,5 +1,6 @@
 import re
 import nltk
+import json
 from nltk.stem.snowball import FrenchStemmer
 
 class Parser:
@@ -23,9 +24,23 @@ class Parser:
 
     def tokenization(self, value):
         """ """
-        value = nltk.word_tokenize(value)
-        return value
+        searched_words = nltk.word_tokenize(value)
+        for word in searched_words:
+            if len(word) == 1:
+                searched_words.remove(word)
+        return searched_words
 
+    def remove_stopwords(self, value):
+        """ """
+        with open("grandpy/stop_words.json", encoding="utf-8") as json_file:
+            stopwords = json.load(json_file)
+
+        for word in value:
+            if word in stopwords["stop_words"]:
+                value.remove(word)
+                print(word, " est un stop word")
+
+        return value
 
 
 if __name__ == "__main__":
@@ -34,4 +49,6 @@ if __name__ == "__main__":
     # === Tests of methods ===
     # print(parser.lowercase("ToTO"))
     # print(parser.punctuation("hop,hop, hop, zut: ça v;a plus! ..../_ super..."))
-    print(parser.tokenization("hop hop hop zut ça va plus super"))
+    # print(parser.tokenization("c est top parce que j ai réussi à faire nimp"))
+    # print (parser.remove_stopwords(['est', 'top', 'toujours', 'abord', 'parce', 'que', 'ai', 'réussi', 'faire', 'nimp']))
+    print (parser.remove_stopwords(['vives', 'toujours', 'puisque', 'orléans', 'pure', '16', 'camille']))
