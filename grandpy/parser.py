@@ -34,13 +34,8 @@ class Parser:
         """ """
         with open("grandpy/stop_words.json", encoding="utf-8") as json_file:
             stopwords = json.load(json_file)
-
-        for word in value:
-            if word in stopwords["stop_words"]:
-                value.remove(word)
-                print(word, " est un stop word")
-
-        return value
+        key_words = [word for word in value if word not in stopwords["stop_words"]]
+        return key_words
 
 
 if __name__ == "__main__":
