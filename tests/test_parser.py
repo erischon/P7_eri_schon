@@ -34,6 +34,13 @@ def test_remove_stop_words():
     result_a = parser.remove_stopwords(['vives', 'toujours', 'puisque', 'orléans', 'pure', '16', 'camille'])
     assert result_a == ['orléans', '16', 'camille']
 
+# class test
+def test_clean_text():
+    result_a = parser.clean_text("je cherche l'adresse de la maison de la radio à paris ou à marseille")
+    assert result_a == ['cherche', 'adresse', 'maison', 'radio', 'paris', 'marseille']
+
+
+
 
 # # spacing
 # def test_remove_spacing():
@@ -41,8 +48,4 @@ def test_remove_stop_words():
 
 # # accents
 # def test_remove_accents():
-#     pass
-
-# # class test
-# def clean_text():
 #     pass
