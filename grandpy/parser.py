@@ -42,9 +42,9 @@ class Parser:
         value = self.punctuation(value)
         value = self.tokenization(value)
         value = self.remove_stopwords(value)
-        return value
-
-
+        searched_words = " "
+        # searched_words = searched_words.join(value)
+        return searched_words.join(value)
 
 if __name__ == "__main__":
     parser = Parser()
