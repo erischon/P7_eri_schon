@@ -35,8 +35,8 @@ def test_remove_stop_words():
     assert result_a == ['orléans', '16', 'camille']
 
 # class test
-def test_clean_text():
-    result_a = parser.clean_text("je cherche l'adresse de la maison de la radio à paris ou à marseille")
+def test_parser():
+    result_a = parser.parser("je cherche l'adresse de la maison de la radio à paris ou à marseille")
     # assert result_a == ['cherche', 'adresse', 'maison', 'radio', 'paris', 'marseille']
     assert result_a == "cherche adresse maison radio paris marseille"
 
