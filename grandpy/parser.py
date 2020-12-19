@@ -37,6 +37,14 @@ class Parser:
         key_words = [word for word in value if word not in stopwords["stop_words"]]
         return key_words
 
+    def parser(self, value):
+        value = self.lowercase(value)
+        value = self.punctuation(value)
+        value = self.tokenization(value)
+        value = self.remove_stopwords(value)
+        return value
+
+
 
 if __name__ == "__main__":
     parser = Parser()
@@ -46,4 +54,5 @@ if __name__ == "__main__":
     # print(parser.punctuation("hop,hop, hop, zut: ça v;a plus! ..../_ super..."))
     # print(parser.tokenization("c est top parce que j ai réussi à faire nimp"))
     # print (parser.remove_stopwords(['est', 'top', 'toujours', 'abord', 'parce', 'que', 'ai', 'réussi', 'faire', 'nimp']))
-    print (parser.remove_stopwords(['vives', 'toujours', 'puisque', 'orléans', 'pure', '16', 'camille']))
+    # print (parser.remove_stopwords(['vives', 'toujours', 'puisque', 'orléans', 'pure', '16', 'camille']))
+    print(parser.parser("je cherche l'adresse de la maison de la radio à paris ou à marseille"))
