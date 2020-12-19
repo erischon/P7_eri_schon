@@ -1,7 +1,6 @@
 import re
 import nltk
 import json
-from nltk.stem.snowball import FrenchStemmer
 
 class Parser:
     """ """
@@ -23,7 +22,7 @@ class Parser:
         return value
 
     def tokenization(self, value):
-        """ """
+        """ I create tokens. """
         searched_words = nltk.word_tokenize(value)
         for word in searched_words:
             if len(word) == 1:
@@ -31,13 +30,14 @@ class Parser:
         return searched_words
 
     def remove_stopwords(self, value):
-        """ """
+        """ I remove the French stopwords. """
         with open("grandpy/stop_words.json", encoding="utf-8") as json_file:
             stopwords = json.load(json_file)
         key_words = [word for word in value if word not in stopwords["stop_words"]]
         return key_words
 
     def parser(self, value):
+        """ I parse the query. """
         value = self.lowercase(value)
         value = self.punctuation(value)
         value = self.tokenization(value)
