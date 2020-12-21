@@ -1,5 +1,5 @@
 import requests
-from config import GURL, GKEY, UAGENT
+from .config import GURL, GKEY, UAGENT
 
 
 class WrapperGoogle:
@@ -56,5 +56,5 @@ if __name__ == "__main__":
 
     # print(wgoogle.request(), type(wgoogle.request()))
     # print(wgoogle.number_of_results(wgoogle.request()))
-    print(wgoogle.coordinates(wgoogle.request()))
-    print(wgoogle.informations(wgoogle.request()))
+    # print(wgoogle.coordinates(wgoogle.request()))
+    # print(wgoogle.informations(wgoogle.request()))
