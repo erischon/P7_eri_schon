@@ -14,6 +14,7 @@ class WrapperGoogle:
         }
 
     def request(self, query="mairie thiais"):
+        """ I make the request to google place. """
         try:
             request = requests.get(
                 url = self.URL, 
@@ -31,18 +32,18 @@ class WrapperGoogle:
             print(exception)
 
     def number_of_results(self, results):
-        """ """
+        """ I check the number of results. """
         return len(results)
 
     def coordinates(self, results):
-        """ """
+        """ I retrieve the coordinates of the place. """
         result = {
             "geometry": results[0].get('geometry')
         }
         return result
 
     def informations(self, results):
-        """ """
+        """ I retrieve the informations of the place. """
         result = {
             "name": results[0].get('name'),
             "formatted_address": results[0].get('formatted_address'),
