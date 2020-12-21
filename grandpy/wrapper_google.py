@@ -13,7 +13,7 @@ class WrapperGoogle:
             "key": GKEY
         }
 
-    def connection(self, query="paris"):
+    def request(self, query="paris"):
         try:
             request = requests.get(
                 url = self.URL, 
@@ -29,7 +29,7 @@ class WrapperGoogle:
         except requests.RequestException as exception:
             print(exception)
 
-    def request(self, query):
+    def coordinates(self, results):
         """ """
         request = self.connection(params={"query": query})
         print(request)
@@ -38,5 +38,5 @@ class WrapperGoogle:
 if __name__ == "__main__":
     wgoogle = WrapperGoogle()
 
-    print(wgoogle.connection(), type(wgoogle.connection()))
+    print(wgoogle.request(), type(wgoogle.request()))
     # print(wgoogle.request("paris"))
