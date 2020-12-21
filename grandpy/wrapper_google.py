@@ -1,5 +1,5 @@
 import requests
-from config import GURL, GKEY, UAGENT
+from .config import GURL, GKEY, UAGENT
 
 
 class WrapperGoogle:
@@ -9,9 +9,7 @@ class WrapperGoogle:
         self.URL = GURL
         self.HEADERS = {"User-Agent": UAGENT}
         self.GKEY = GKEY
-        self.PARAMS = {
-            "key": GKEY
-        }
+        self.PARAMS = {"key": GKEY}
 
     def request(self, query="mairie thiais"):
         """ I make the request to google place. """
@@ -25,8 +23,7 @@ class WrapperGoogle:
                 headers = self.HEADERS
             )
             results = request.json()
-            results = results["results"]
-            return results
+            return results["results"]
 
         except requests.RequestException as exception:
             print(exception)
