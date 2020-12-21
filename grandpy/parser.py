@@ -6,7 +6,7 @@ class Parser:
     """ """
 
     def __init__(self):
-        self.stemmer = FrenchStemmer()
+        pass
 
     def lowercase(self, value):
         """ I lowercase the text. """
