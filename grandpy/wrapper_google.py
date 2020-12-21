@@ -1,5 +1,5 @@
 import requests
-from .config import GURL, GKEY, UAGENT
+from config import GURL, GKEY, UAGENT
 
 
 class WrapperGoogle:
@@ -13,7 +13,7 @@ class WrapperGoogle:
             "key": GKEY
         }
 
-    def request(self, query="cherche adresse maison radio paris marseille"):
+    def request(self, query="mairie thiais"):
         try:
             request = requests.get(
                 url = self.URL, 
