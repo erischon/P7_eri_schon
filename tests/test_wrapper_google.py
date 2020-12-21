@@ -2,9 +2,9 @@ from grandpy.wrapper_google import WrapperGoogle
 
 wgoogle = WrapperGoogle()
 
-def test_google_api_connection():
-    result_a = wgoogle.connection()
-    assert result_a == "je veux une fonction"
+def test_google_request():
+    result_a = str(type(wgoogle.request()))
+    assert result_a == "<class 'dict'>"
 
 # def test_answer_to_resquest():
 #     pass
