@@ -4,6 +4,7 @@ wwiki = WrapperWiki()
 
 location = {'location': {'lat': 48.76569917989272, 'lng': 2.392394129892722}}
 coord = "48.76569917989272|2.392394129892722"
+pageid = "1509079"
 
 def test_location_to_coord():
     """ """
