@@ -1,6 +1,6 @@
-from grandpy.parser import Parser
+from grandpy.gp_parser import GPParser
 
-parser = Parser()
+parser = GPParser()
 
 # lowercase
 def test_to_lowercase():
