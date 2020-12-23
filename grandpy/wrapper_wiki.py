@@ -29,9 +29,13 @@ class WrapperWiki:
                 },
             )
             results = request.json()
-            result = results.get('query').get('geosearch')
-            result = result[0].get('pageid')
-            return result
+
+            if len(results) < 1:
+                print("Désolé, je n'ai rien à dire")
+            else:
+                result = results.get('query').get('geosearch')
+                result = result[0].get('pageid')
+                return result
 
         except requests.RequestException as exception:
             print(exception)
@@ -54,8 +58,11 @@ class WrapperWiki:
             )
             results = request.json()
 
-            result = results.get('query').get('pages').get(pageid).get('extract')
-            return result
+            if len(results) < 1:
+                print("Désolé, je n'ai rien à dire")
+            else:
+                result = results.get('query').get('pages').get(pageid).get('extract')
+                return result
 
         except requests.RequestException as exception:
             print(exception)
