@@ -1,13 +1,66 @@
 import requests
 
+from .config import WURL
+
 
 class WrapperWiki:
     """ """
 
     def __init__(self):
         """ """
-        pass
+        self.URL = WURL
 
-    def request(self, query=""):
+    def location_to_coord(self, location):
         """ """
-        pass
+        return f"{location.get('location').get('lat')}|{location.get('location').get('lng')}"
+
+    def coord_to_pageid(self, coord="48.76569917989272|2.392394129892722"):
+        """ """
+        try:
+            request = requests.get(
+                url = self.URL, 
+                params = {
+                    "action": "query",
+                    "list": "geosearch",
+                    "gscoord": coord,
+                    "gsradius": 100,
+                    "gslimit": 1,
+                    "format": "json",
+                },
+            )
+            results = request.json()
+            result = results.get('query').get('geosearch')
+            result = result[0].get('pageid')
+            return result
+
+        except requests.RequestException as exception:
+            print(exception)
+
+    def wiki_text(self, pageid="1509079"):
+        """ """
+        try:
+            request = requests.get(
+                url = self.URL, 
+                params = {
+                    "action": "query",
+                    "list": "geosearch",
+                    "gscoord": coord,
+                    "gsradius": 100,
+                    "gslimit": 1,
+                    "format": "json",
+                },
+            )
+            results = request.json()
+            result = results.get('query').get('geosearch')
+            result = result[0].get('pageid')
+            return result
+
+        except requests.RequestException as exception:
+            print(exception)
+    
+
+if __name__ == "__main__":
+    wwiki = WrapperWiki()
+
+    # print(wwiki.location_to_coord({'location': {'lat': 48.76569917989272, 'lng': 2.392394129892722}}), type(wwiki.location_to_coord({'location': {'lat': 48.76569917989272, 'lng': 2.392394129892722}})))
+    print(wwiki.coord_to_pageid("48.76569917989272|2.392394129892722"), type(wwiki.coord_to_pageid("48.76569917989272|2.392394129892722")))
