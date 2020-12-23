@@ -1,4 +1,5 @@
 import requests
+
 from .config import GURL, GKEY, UAGENT
 
 
@@ -23,7 +24,11 @@ class WrapperGoogle:
                 headers = self.HEADERS
             )
             results = request.json()
-            return results["results"]
+            
+            if results.get('status') != 'OK':
+                print("Désolé, je n'ai rien à dire")
+            else:
+                return results["results"]
 
         except requests.RequestException as exception:
             print(exception)
@@ -52,7 +57,7 @@ class WrapperGoogle:
 if __name__ == "__main__":
     wgoogle = WrapperGoogle()
 
-    # print(wgoogle.request(), type(wgoogle.request()))
+    print(wgoogle.request("chaussures tombouktou besoin marcher aller himalaya"), type(wgoogle.request()))
     # print(wgoogle.number_of_results(wgoogle.request()))
     # print(wgoogle.coordinates(wgoogle.request()))
     # print(wgoogle.informations(wgoogle.request()))
