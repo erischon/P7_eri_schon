@@ -12,7 +12,7 @@ class WrapperGoogle:
         self.GKEY = GKEY
         self.PARAMS = {"key": GKEY}
 
-    def request(self, query="mairie thiais"):
+    def request(self, query="thiais"):
         """ I make the request to google place. """
         try:
             request = requests.get(
@@ -26,7 +26,9 @@ class WrapperGoogle:
             results = request.json()
             
             if results.get('status') != 'OK':
-                print("Désolé, je n'ai rien à dire")
+                # print("Désolé, je n'ai trouvé aucun lieu qui correspond à cette recherche.")
+                results = None
+                return results
             else:
                 return results["results"]
 
@@ -53,11 +55,20 @@ class WrapperGoogle:
         }
         return result
 
+    # def result_name(self, results):
+    #     """ """
+    #     result = results[0].get('name')
+    #     result = result.replace(" ", "_")
+    #     return result   
+
 
 if __name__ == "__main__":
     wgoogle = WrapperGoogle()
 
-    print(wgoogle.request("chaussures tombouktou besoin marcher aller himalaya"), type(wgoogle.request()))
+    print(wgoogle.request("mairie thiais wiki"), type(wgoogle.request()))
+    # print(wgoogle.request("moutarde dijon paris wiki"), type(wgoogle.request()))
+    # print(wgoogle.request("chaussures tombouktou besoin marcher aller himalaya"), type(wgoogle.request()))
     # print(wgoogle.number_of_results(wgoogle.request()))
     # print(wgoogle.coordinates(wgoogle.request()))
     # print(wgoogle.informations(wgoogle.request()))
+    # print(wgoogle.result_name(wgoogle.request()))
