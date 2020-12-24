@@ -1,6 +1,6 @@
 import requests
 
-from .config import GURL, GKEY, UAGENT
+from config import GURL, GKEY, UAGENT
 
 
 class WrapperGoogle:
