@@ -1,6 +1,6 @@
 import requests
 
-from .config import WURL
+from config import WURL
 
 
 class WrapperWiki:
@@ -23,7 +23,7 @@ class WrapperWiki:
                     "action": "query",
                     "list": "geosearch",
                     "gscoord": coord,
-                    "gsradius": 100,
+                    "gsradius": 1000,
                     "gslimit": 1,
                     "format": "json",
                 },
