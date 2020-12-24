@@ -44,7 +44,7 @@ class GPParser:
         value = self.punctuation(value)
         value = self.tokenization(value)
         value = self.remove_stopwords(value)
-        # value.append("wiki")
+        value.append("wiki")
         searched_words = " "
         return searched_words.join(value)
 
