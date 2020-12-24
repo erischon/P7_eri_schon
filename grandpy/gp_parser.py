@@ -44,6 +44,7 @@ class GPParser:
         value = self.punctuation(value)
         value = self.tokenization(value)
         value = self.remove_stopwords(value)
+        # value.append("wiki")
         searched_words = " "
         return searched_words.join(value)
 
@@ -56,4 +57,4 @@ if __name__ == "__main__":
     # print(parser.tokenization("c est top parce que j ai réussi à faire nimp"))
     # print (parser.remove_stopwords(['est', 'top', 'toujours', 'abord', 'parce', 'que', 'ai', 'réussi', 'faire', 'nimp']))
     # print (parser.remove_stopwords(['vives', 'toujours', 'puisque', 'orléans', 'pure', '16', 'camille']))
-    # print(parser.parser("je cherche l'adresse de la maison de la radio à paris ou à marseille"))
+    print(parser.parser("je cherche l'adresse de la maison de la radio à paris ou à marseille"))
