@@ -7,6 +7,7 @@ class WrapperGoogle:
     """ """
 
     def __init__(self):
+        """ """
         self.URL = GURL
         self.HEADERS = {"User-Agent": UAGENT}
         self.GKEY = GKEY
@@ -35,12 +36,14 @@ class WrapperGoogle:
         except requests.RequestException as exception:
             print(exception)
 
-    def number_of_results(self, results):
-        """ I check the number of results. """
-        return len(results)
+    # def number_of_results(self, results):
+    #     """ I check the number of results. """
+    #     return len(results)
 
     def coordinates(self, results):
-        """ I retrieve the coordinates of the place. """
+        """ I retrieve the coordinates of the place. 
+        exemple :
+        """
         result = {
             "location": results[0].get('geometry').get('viewport').get('northeast')
         }
