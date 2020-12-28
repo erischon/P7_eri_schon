@@ -1,6 +1,6 @@
 import requests
 
-from config import GURL, GKEY, UAGENT
+from config import Config
 
 
 class WrapperGoogle:
@@ -8,10 +8,11 @@ class WrapperGoogle:
 
     def __init__(self):
         """ """
-        self.URL = GURL
-        self.HEADERS = {"User-Agent": UAGENT}
-        self.GKEY = GKEY
-        self.PARAMS = {"key": GKEY}
+        config = Config()
+        self.URL = config.GURL
+        self.HEADERS = {"User-Agent": config.UAGENT}
+        self.GKEY = config.GKEY
+        self.PARAMS = {"key": config.GKEY}
 
     def request(self, query="thiais"):
         """ I make the request to google place. """
@@ -19,7 +20,7 @@ class WrapperGoogle:
             request = requests.get(
                 url = self.URL, 
                 params = {
-                    "key": GKEY,
+                    "key": self.GKEY,
                     "query": query
                 }, 
                 headers = self.HEADERS
