@@ -39,4 +39,4 @@ def test_parser():
     """ I test the parser. """
     result_a = parser.parser("je cherche l'adresse de la maison de la radio à paris ou à marseille")
     # assert result_a == ['cherche', 'adresse', 'maison', 'radio', 'paris', 'marseille']
-    assert result_a == "cherche adresse maison radio paris marseille"
+    assert result_a == "cherche adresse maison radio paris marseille wiki"
