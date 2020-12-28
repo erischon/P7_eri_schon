@@ -30,15 +30,22 @@ class WrapperWiki:
                 },
             )
             results = request.json()
-            # results_a = results.get('query').get('geosearch')
-            print(results, type(results))
 
-            if len(results.get('query').get('geosearch')) < 1:
-                print("Désolé, je n'ai rien à dire")
-            else:
-                result = results.get('query').get('geosearch')
-                result = result[0].get('pageid')
-                return result
+            isempty = bool(results.get('query'))
+            hop = results.get('query')
+            hip = type(hop)
+            print(hip)
+
+            return hop
+
+            # if results.get('error'):
+            #     print("Désolé, je n'ai rien à dire")
+            #     return False
+            # else:
+            #     print("toto")
+                # result = results.get('query').get('geosearch')
+                # result = result[0].get('pageid')
+                # return result
 
         except requests.RequestException as exception:
             print(exception)
@@ -75,10 +82,8 @@ if __name__ == "__main__":
     wwiki = WrapperWiki()
 
     # print(wwiki.location_to_coord({'location': {'lat': 48.76569917989272, 'lng': 2.392394129892722}}), type(wwiki.location_to_coord({'location': {'lat': 48.76569917989272, 'lng': 2.392394129892722}})))
-    print(wwiki.coord_to_pageid("48.76569917989272|2.392394129892722"), type(wwiki.coord_to_pageid("48.76569917989272|2.392394129892722")))
-    # print(wwiki.coord_to_pageid("46.2425288|6.067658499999999"), type(wwiki.coord_to_pageid("48.46.2425288|6.067658499999999")))
-
-
+    # print(wwiki.coord_to_pageid("48.76569917989272|2.392394129892722"), type(wwiki.coord_to_pageid("48.76569917989272|2.392394129892722")))
+    print(wwiki.coord_to_pageid("46.2425288|6.067658499999999"), type(wwiki.coord_to_pageid("48.46.2425288|6.067658499999999")))
 
     # print(wwiki.wiki_text("5548980"))
     # print(wwiki.name_to_pageid("mairie_de_thiais"))
