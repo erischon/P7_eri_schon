@@ -15,7 +15,7 @@ class WrapperWiki:
         """ """
         return f"{location.get('location').get('lat')}|{location.get('location').get('lng')}"
 
-    def coord_to_pageid(self, coord="48.76569917989272|2.392394129892722"):
+    def coord_to_pageid(self, coord):
         """ """
         try:
             request = requests.get(
@@ -31,21 +31,19 @@ class WrapperWiki:
             )
             results = request.json()
 
-            isempty = bool(results.get('query'))
-            hop = results.get('query')
-            hip = type(hop)
-            print(hip)
+            query = results.get('query')
 
-            return hop
+            # if query == {'geosearch': []}:
+            #     return "toto"
 
-            # if results.get('error'):
-            #     print("Désolé, je n'ai rien à dire")
-            #     return False
-            # else:
-            #     print("toto")
-                # result = results.get('query').get('geosearch')
-                # result = result[0].get('pageid')
-                # return result
+            # return query
+
+            if query == {'geosearch': []}:
+                return False
+            else:
+                result = results.get('query').get('geosearch')
+                result = result[0].get('pageid')
+                return result
 
         except requests.RequestException as exception:
             print(exception)
@@ -83,7 +81,7 @@ if __name__ == "__main__":
 
     # print(wwiki.location_to_coord({'location': {'lat': 48.76569917989272, 'lng': 2.392394129892722}}), type(wwiki.location_to_coord({'location': {'lat': 48.76569917989272, 'lng': 2.392394129892722}})))
     # print(wwiki.coord_to_pageid("48.76569917989272|2.392394129892722"), type(wwiki.coord_to_pageid("48.76569917989272|2.392394129892722")))
-    print(wwiki.coord_to_pageid("46.2425288|6.067658499999999"), type(wwiki.coord_to_pageid("48.46.2425288|6.067658499999999")))
+    print(wwiki.coord_to_pageid("46.2425288|6.067658499999999"))
 
     # print(wwiki.wiki_text("5548980"))
     # print(wwiki.name_to_pageid("mairie_de_thiais"))
