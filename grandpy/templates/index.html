@@ -7,19 +7,19 @@
     <title>Document</title>
 </head>
 <body>
-
-    <input type="text" id="livebox">
-    <input type="submit" name="submit">
+    <form action="post" id="form">
+        <input type="text" id="livebox">
+        <input type="submit">
+    </form>
     
 </body>
     <script>
         $(document).ready(function(){
             
-            $("#livebox").submit(function(e){
-                // textinlivebox = $("#livebox").val();
-                // var textinlivebox = $("#livebox").val();
+            $("#form").submit(function(e){
+                event.preventDefault(); //prevent default action
 
-                console.log("textinlivebox");
+                textinlivebox = $("#livebox").val();
                 
                 $.ajax({
                     method:"post",
