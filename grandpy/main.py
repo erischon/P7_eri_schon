@@ -30,6 +30,9 @@ class GrandPy:
         coord_result = self.wwiki.location_to_coord(location_result)
         print("\n== coordonnées à passer à Wikipedia : ", coord_result, "==")
         pageid_result = self.wwiki.coord_to_pageid(coord_result)
+        if not pageid_result:
+            print("Désolé, je n'ai rien à dire...")
+            return
         print("\n== L'ID de la page wikipedia : ", pageid_result, "==")
         text_result = self.wwiki.wiki_text(str(pageid_result))
         print("\n== Le texte : ", text_result, "==")
