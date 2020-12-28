@@ -37,9 +37,9 @@ class WrapperGoogle:
         except requests.RequestException as exception:
             print(exception)
 
-    # def number_of_results(self, results):
-    #     """ I check the number of results. """
-    #     return len(results)
+    def number_of_results(self, results):
+        """ I check the number of results. """
+        return len(results)
 
     def coordinates(self, results):
         """ I retrieve the coordinates of the place. 
