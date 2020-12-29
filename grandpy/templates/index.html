@@ -11,29 +11,16 @@
         <input type="text" id="livebox">
         <input type="submit">
     </form>
-    
+
+    test
+
+    <div id="result_query"></div>
+    <div id="result_name"></div>
+    <div id="result_adress"></div>
+    <div id="result_wiki"></div>
+
 </body>
-    <script>
-        $(document).ready(function(){
-            
-            $("#form").submit(function(e){
-                event.preventDefault(); //prevent default action
 
-                textinlivebox = $("#livebox").val();
-                
-                $.ajax({
-                    method:"post",
-                    url:"/livesearch",
-                    data:{text:textinlivebox},
-                    success: function(res){
-                        console.log(res);
-                    }
-                })
-            });
-
-        })
-
-
-    </script>
+    <script src="../static/script.js"></script>
 
 </html>
