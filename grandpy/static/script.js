@@ -1,12 +1,23 @@
-const button = document.querySelector('.btn')
 
-button.addEventListener('click', () => myFunction())
+$(document).ready(function(){
+            
+    $("#form").submit(function(e){
+        event.preventDefault(); //prevent default action
 
-function myFunction() {
-    var x = document.getElementById("answerElement");
-    if (x.style.display === "none") {
-      x.style.display = "block";
-    } else {
-      x.style.display = "none";
-    }
-  }
+        textinlivebox = $("#livebox").val();
+        
+        $.ajax({
+            method:"post",
+            url:"/livesearch",
+            data:{text:textinlivebox},
+            success: function(res){
+                $("#result_query").html(res["query"]);
+                $("#result_name").html(res["ginfos"]["name"]);
+                $("#result_adress").html(res["ginfos"]["formatted_address"]);
+                $("#result_wiki").html(res["wresult"]);
+               console.log(res["wresult"]);
+            }
+        })
+    });
+
+})
