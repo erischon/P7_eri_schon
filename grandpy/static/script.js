@@ -14,8 +14,7 @@ $(document).ready(function(){
                 $("#result_query").html(res["query"]);
                 $("#result_name").html(res["ginfos"]["name"]);
                 $("#result_adress").html(res["ginfos"]["formatted_address"]);
-                $("#result_wiki").html(res["wresult"]);
-               console.log(res["wresult"]);
+                $("#result_wiki").html(res["wtext"]);
             }
         })
     });
