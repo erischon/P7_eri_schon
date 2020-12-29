@@ -13,7 +13,6 @@ def livesearch():
     searchbox = request.form.get("text")
     grandpy = GrandPy()
     result = grandpy.main(searchbox)
-
     return jsonify(result)
 
 if __name__ == "__main__":
