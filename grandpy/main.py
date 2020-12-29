@@ -12,7 +12,7 @@ class GrandPy:
         self.wgoogle = WrapperGoogle()
         self.wwiki = WrapperWiki()
 
-    def main_coord(self, query):
+    def main(self, query):
         """ """
         response = {}
         response["query"] = query
@@ -20,35 +20,37 @@ class GrandPy:
         # Parsing
         parsing_result = self.gpparser.parser(query)
         if parsing_result == "wiki":
-            response["flow"] = False
+            response["parsing"] = False
             return response
-        response["parsing"] = parsing_result
+        response["parsing"] = True
+        response["parsing_result"] = parsing_result
 
-        # Google Search
+        # Google Result
         google_result = self.wgoogle.request(parsing_result)
-        # google_nbe_result = self.wgoogle.number_of_results(google_result)
-        # print("\n== Le nombre de résultat de la recherche Google : ", google_nbe_result, "==")
+
         if google_result == None:
-            response["flow"] = False
+            response["gresult"] = False
             return response
-        place_result = self.wgoogle.informations(google_result)
-        print("\n== Les informations sur le lieu : ", place_result, "==")
-        location_result = self.wgoogle.coordinates(google_result)
-        print("\n== La location Google : ", location_result, "==")
-        
-        
-        
-        
-        
-        coord_result = self.wwiki.location_to_coord(location_result)
-        print("\n== coordonnées à passer à Wikipedia : ", coord_result, "==")
-        pageid_result = self.wwiki.coord_to_pageid(coord_result)
-        if not pageid_result:
-            print("Désolé, je n'ai rien à dire...")
-            return
-        print("\n== L'ID de la page wikipedia : ", pageid_result, "==")
-        text_result = self.wwiki.wiki_text(str(pageid_result))
-        print("\n== Le texte : ", text_result, "==")
+        response["gresult"] = True
+
+        google_place_result = self.wgoogle.informations(google_result)
+        response["ginfos"] = google_place_result
+
+        google_location_result = self.wgoogle.coordinates(google_result)
+        response["gcoord"] = google_location_result
+
+        # Wiki result      
+        coord_result = self.wwiki.location_to_coord(google_location_result)
+        wiki_pageid_result = self.wwiki.coord_to_pageid(coord_result)
+        if not wiki_pageid_result:
+            response["wresult"] = False
+            return response
+        response["wresult"] = True
+        response["wpageid"] = wiki_pageid_result
+
+        wiki_text_result = self.wwiki.wiki_text(str(wiki_pageid_result))
+        response["wtext"] = wiki_text_result
+
         return response
 
 
@@ -56,5 +58,5 @@ if __name__ == "__main__":
     grandpy = GrandPy()
 
     # print(grandpy.main_coord('thiais mairie'))
-    print(grandpy.main_coord('zapzapzapzap'))
+    print(grandpy.main_coord('mairie de paris'))
     # grandpy.main_name()
