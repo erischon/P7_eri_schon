@@ -11,10 +11,10 @@ def index():
 @app.route('/livesearch', methods=['POST', 'GET'])
 def livesearch():
     searchbox = request.form.get("text")
-    parser = GPParser()
-    result = parser.parser(searchbox)
-    # grandpy = GrandPy()
-    # result = grandpy.main_coord(searchbox)
+    # parser = GPParser()
+    # result = parser.parser(searchbox)
+    grandpy = GrandPy()
+    result = grandpy.main_coord(searchbox)
 
     return jsonify(result)
 
