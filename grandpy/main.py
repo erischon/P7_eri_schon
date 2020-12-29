@@ -43,7 +43,7 @@ class GrandPy:
         coord_result = self.wwiki.location_to_coord(google_location_result)
         wiki_pageid_result = self.wwiki.coord_to_pageid(coord_result)
         if not wiki_pageid_result:
-            response["wresult"] = False
+            response["wresult"] = 0
             return response
         response["wresult"] = True
         response["wpageid"] = wiki_pageid_result
@@ -58,5 +58,5 @@ if __name__ == "__main__":
     grandpy = GrandPy()
 
     # print(grandpy.main_coord('thiais mairie'))
-    print(grandpy.main_coord('mairie de paris'))
+    print(grandpy.main('tonbouktou'))
     # grandpy.main_name()
