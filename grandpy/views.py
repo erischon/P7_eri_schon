@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, jsonify
-from main import GrandPy
-from gp_parser import GPParser
+from .main import GrandPy
+from .gp_parser import GPParser
 
 app = Flask(__name__)
 

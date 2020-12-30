@@ -1,7 +1,7 @@
 
-from gp_parser import GPParser
-from wrapper_google import WrapperGoogle
-from wrapper_wiki import WrapperWiki
+from .gp_parser import GPParser
+from .wrapper_google import WrapperGoogle
+from .wrapper_wiki import WrapperWiki
 
 class GrandPy:
     """ """
@@ -58,5 +58,5 @@ if __name__ == "__main__":
     grandpy = GrandPy()
 
     # print(grandpy.main_coord('thiais mairie'))
-    print(grandpy.main('mairie de thiais'))
+    # print(grandpy.main('mairie de thiais'))
     # grandpy.main_name()

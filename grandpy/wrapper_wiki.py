@@ -1,6 +1,6 @@
 import requests
 
-from config import Config
+from .config import Config
 
 
 class WrapperWiki:
@@ -81,7 +81,7 @@ if __name__ == "__main__":
 
     # print(wwiki.location_to_coord({'location': {'lat': 48.76569917989272, 'lng': 2.392394129892722}}), type(wwiki.location_to_coord({'location': {'lat': 48.76569917989272, 'lng': 2.392394129892722}})))
     # print(wwiki.coord_to_pageid("48.76569917989272|2.392394129892722"), type(wwiki.coord_to_pageid("48.76569917989272|2.392394129892722")))
-    print(wwiki.coord_to_pageid("46.2425288|6.067658499999999"))
+    # print(wwiki.coord_to_pageid("46.2425288|6.067658499999999"))
 
     # print(wwiki.wiki_text("5548980"))
     # print(wwiki.name_to_pageid("mairie_de_thiais"))
