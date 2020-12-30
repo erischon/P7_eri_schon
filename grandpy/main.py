@@ -49,7 +49,8 @@ class GrandPy:
         response["wpageid"] = wiki_pageid_result
 
         wiki_text_result = self.wwiki.wiki_text(str(wiki_pageid_result))
-        response["wtext"] = wiki_text_result
+        response["wtext"] = wiki_text_result.get("extract")
+        response["wtitle"] = wiki_text_result.get("title")
 
         return response
 
