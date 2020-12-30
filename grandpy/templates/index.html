@@ -7,7 +7,7 @@
     <title>GrandPy</title>
 </head>
 <body>
-    <form action="post" id="form">
+    <form id="form">
         <input type="text" id="livebox">
         <input type="submit">
     </form>
@@ -19,8 +19,34 @@
         <div id="result_wiki">L'info Wiki</div>
     </p>
 
+<script>
+$(document).ready(function(){
+            
+            $("#form").submit(function(e){
+        
+                e.preventDefault()
+        
+                textinlivebox = $("#livebox").val();
+        
+                $.ajax({
+                    method:"post",
+                    url:"/livesearch",
+                    data:{text:textinlivebox},
+                    success: function(res){
+                        response(res);
+                    }
+                })
+            });
+        
+        })
+        
+        function response(res) {
+            $("#result_query").html("votre question : ", res["query"]);
+            $("#result_name").html(res["ginfos"]["name"]);
+            $("#result_address").html(res["ginfos"]["formatted_address"]);
+            $("#result_wiki").html(res["wtext"]);
+        }
+</script>
+
 </body>
-
-    <script src="../static/script.js"></script>
-
 </html>
