@@ -1,16 +1,19 @@
+console.log('jhgjkhgkg')
+
 $(document).ready(function(){
             
     $("#form").submit(function(e){
 
+        e.preventDefault()
+
         textinlivebox = $("#livebox").val();
 
-        $.ajaxSetup({ cache: false });
         $.ajax({
             method:"post",
             url:"/livesearch",
             data:{text:textinlivebox},
             success: function(res){
-               response(res);
+                response(res);
             }
         })
     });
