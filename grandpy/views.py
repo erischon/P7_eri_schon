@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, jsonify
+
 from .main import GrandPy
 from .gp_parser import GPParser
 
@@ -8,7 +9,7 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/livesearch', methods=['POST', 'GET'])
+@app.route('/livesearch', methods=['GET', 'POST'])
 def livesearch():
     searchbox = request.form.get("text")
     grandpy = GrandPy()
