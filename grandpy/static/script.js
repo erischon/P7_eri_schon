@@ -1,4 +1,3 @@
-console.log('jhgjkhgkg')
 
 $(document).ready(function(){
             
@@ -13,7 +12,21 @@ $(document).ready(function(){
             url:"/livesearch",
             data:{text:textinlivebox},
             success: function(res){
-                response(res);
+                
+                if (res["gresult"] == true) {
+                    response(res)
+                }
+                else {
+                    $("#result_name").html("Désolé je n'ai pas de réponse.");
+                }
+
+                if (res["wresult"] == true) {
+                    wikiResponse(res)
+                }
+                else {
+                    $("#result_wiki").html("Désolé je n'ai pas de réponse.");
+                }                
+
             }
         })
     });
@@ -21,8 +34,11 @@ $(document).ready(function(){
 })
 
 function response(res) {
-    $("#result_query").html("votre question : ", res["query"]);
+    $("#result_query").html(res["query"]);
     $("#result_name").html(res["ginfos"]["name"]);
     $("#result_address").html(res["ginfos"]["formatted_address"]);
+}
+
+function wikiResponse(res) {
     $("#result_wiki").html(res["wtext"]);
 }
