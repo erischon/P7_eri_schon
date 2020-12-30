@@ -12,7 +12,7 @@ $(document).ready(function(){
             url:"/livesearch",
             data:{text:textinlivebox},
             success: function(res){
-                
+
                 if (res["gresult"] == true) {
                     response(res)
                 }
@@ -24,7 +24,7 @@ $(document).ready(function(){
                     wikiResponse(res)
                 }
                 else {
-                    $("#result_wiki").html("Désolé je n'ai pas de réponse.");
+                    $("#result_wiki").html("Désolé, je n'ai pas trouvé d'histoire intéressante à raconter...");
                 }                
 
             }
@@ -40,5 +40,6 @@ function response(res) {
 }
 
 function wikiResponse(res) {
-    $("#result_wiki").html(res["wtext"]);
+    $("#result_wiki_title").html(res["wtitle"]);
+    $("#result_wiki_text").html(res["wtext"]);
 }
