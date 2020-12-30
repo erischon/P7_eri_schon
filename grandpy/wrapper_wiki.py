@@ -24,7 +24,7 @@ class WrapperWiki:
                     "action": "query",
                     "list": "geosearch",
                     "gscoord": coord,
-                    "gsradius": 100,
+                    "gsradius": 200,
                     "gslimit": 1,
                     "format": "json",
                 },
@@ -32,11 +32,6 @@ class WrapperWiki:
             results = request.json()
 
             query = results.get('query')
-
-            # if query == {'geosearch': []}:
-            #     return "toto"
-
-            # return query
 
             if query == {'geosearch': []}:
                 return False
@@ -65,11 +60,14 @@ class WrapperWiki:
                 },
             )
             results = request.json()
+            # print(results)
 
             if len(results) < 1:
                 print("Désolé, je n'ai rien à dire")
             else:
-                result = results.get('query').get('pages').get(pageid).get('extract')
+                result = {}
+                result["title"] = results.get('query').get('pages').get(pageid).get('title')
+                result["extract"] = results.get('query').get('pages').get(pageid).get('extract')
                 return result
 
         except requests.RequestException as exception:
