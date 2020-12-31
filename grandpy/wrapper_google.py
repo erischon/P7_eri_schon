@@ -4,7 +4,7 @@ from .config import Config
 
 
 class WrapperGoogle:
-    """ """
+    """ I'm the Google Wrapper. """
 
     def __init__(self):
         """ """
@@ -15,7 +15,11 @@ class WrapperGoogle:
         self.PARAMS = {"key": config.GKEY}
 
     def request(self, query="thiais"):
-        """ I make the request to google place. """
+        """ I make the request to Google place. 
+        In: the parsed question (str)
+        Act: I request the Google Place API
+        Out: the result (list)
+        """
         try:
             request = requests.get(
                 url = self.URL, 
@@ -28,7 +32,6 @@ class WrapperGoogle:
             results = request.json()
             
             if results.get('status') != 'OK':
-                # print("Désolé, je n'ai trouvé aucun lieu qui correspond à cette recherche.")
                 results = None
                 return results
             else:
@@ -43,7 +46,15 @@ class WrapperGoogle:
 
     def coordinates(self, results):
         """ I retrieve the coordinates of the place. 
-        exemple :
+        In: the results of Google request (dict)
+        Act: I create a dict with latitude and longitude
+        Out: latitute and longitude from the viewport northeast
+        Out Ex: {
+            'location': {
+                'lat': 48.774788, 
+                'lng': 2.4060011
+                    }
+                }
         """
         result = {
             "location": results[0].get('geometry').get('viewport').get('northeast')
@@ -51,7 +62,17 @@ class WrapperGoogle:
         return result
 
     def informations(self, results):
-        """ I retrieve the informations of the place. """
+        """ I retrieve the informations of the place.
+        In: the results of Google request (dict)
+        Act: I create a dict with name, formatted_address and types
+        Out: the informations of the place (dict)
+        Out Ex:
+        {
+            'name': 'Thiais', 
+            'formatted_address': '94320 Thiais, France', 
+            'types': ['locality', 'political']
+        }
+        """
         result = {
             "name": results[0].get('name'),
             "formatted_address": results[0].get('formatted_address'),
@@ -59,17 +80,12 @@ class WrapperGoogle:
         }
         return result
 
-    # def result_name(self, results):
-    #     """ """
-    #     result = results[0].get('name')
-    #     result = result.replace(" ", "_")
-    #     return result   
-
 
 if __name__ == "__main__":
     wgoogle = WrapperGoogle()
 
-    print(wgoogle.request("mairie thiais wiki"), type(wgoogle.request()))
+    # === Tests of methods ===
+    # print(wgoogle.request("mairie thiais wiki"), type(wgoogle.request()))
     # print(wgoogle.request("moutarde dijon paris wiki"), type(wgoogle.request()))
     # print(wgoogle.request("chaussures tombouktou besoin marcher aller himalaya"), type(wgoogle.request()))
     # print(wgoogle.number_of_results(wgoogle.request()))
