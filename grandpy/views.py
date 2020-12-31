@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, jsonify
 
 from .main import GrandPy
 from .gp_parser import GPParser
+from .config import Config
 
 app = Flask(__name__)
 
@@ -15,6 +16,12 @@ def livesearch():
     grandpy = GrandPy()
     result = grandpy.main(searchbox)
     return jsonify(result)
+
+@app.route('/testmap')
+def testmap():
+    config = Config()
+    GKEY = config.GKEY
+    return render_template('map_google.html', gkey=GKEY)
 
 if __name__ == "__main__":
     app.run(debug=True)
