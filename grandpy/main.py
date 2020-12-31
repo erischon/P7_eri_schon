@@ -13,7 +13,12 @@ class GrandPy:
         self.wwiki = WrapperWiki()
 
     def main(self, query):
-        """ """
+        """ I create the answer
+        In: the query of the user
+        Act: I create the answer
+        Out: the 
+        Out Ex: '48.76569917989272|2.392394129892722'
+        """
         response = {}
         response["query"] = query
 
@@ -59,5 +64,5 @@ if __name__ == "__main__":
     grandpy = GrandPy()
 
     # print(grandpy.main_coord('thiais mairie'))
-    # print(grandpy.main('mairie de thiais'))
+    print(grandpy.main('mairie de thiais'))
     # grandpy.main_name()
