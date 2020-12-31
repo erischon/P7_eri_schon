@@ -16,8 +16,28 @@ class GrandPy:
         """ I create the answer
         In: the query of the user
         Act: I create the answer
-        Out: the 
-        Out Ex: '48.76569917989272|2.392394129892722'
+        Out: the result informations (dict)
+        Out Ex: {
+            'query': 'mairie de thiais', 
+            'parsing': True, 
+            'parsing_result': 'mairie thiais wiki', 
+            'gresult': True, 
+            'ginfos': {
+                'name': 'Thiais', 
+                'formatted_address': '94320 Thiais, France', 
+                'types': ['locality', 'political']
+                }, 
+            'gcoord': {
+                'location': {
+                    'lat': 48.774788, 
+                    'lng': 2.4060011
+                    }
+                }, 
+            'wresult': True, 
+            'wpageid': 13553086, 
+            'wtext': 'Le cimetière nouveau de Vitry-sur-Seine est un des cimetières communaux de la commune de Vitry-sur-Seine, dans le département du Val-de-Marne.', 
+            'wtitle': 'Cimetière nouveau de Vitry-sur-Seine'
+        } 
         """
         response = {}
         response["query"] = query
@@ -64,5 +84,5 @@ if __name__ == "__main__":
     grandpy = GrandPy()
 
     # print(grandpy.main_coord('thiais mairie'))
-    print(grandpy.main('mairie de thiais'))
+    # print(grandpy.main('mairie de thiais'))
     # grandpy.main_name()
