@@ -8,7 +8,9 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    config = Config()
+    GKEY = config.GKEY
+    return render_template('index.html', gkey=GKEY)
 
 @app.route('/livesearch', methods=['GET', 'POST'])
 def livesearch():
@@ -17,11 +19,6 @@ def livesearch():
     result = grandpy.main(searchbox)
     return jsonify(result)
 
-@app.route('/testmap')
-def testmap():
-    config = Config()
-    GKEY = config.GKEY
-    return render_template('map_google.html', gkey=GKEY)
 
 if __name__ == "__main__":
     app.run(debug=True)
