@@ -51,13 +51,13 @@ class WrapperGoogle:
         Out: latitute and longitude from the viewport northeast
         Out Ex: {
             'location': {
-                'lat': 48.774788, 
-                'lng': 2.4060011
+                'lat': 48.760344, 
+                'lng': 2.387405
                     }
                 }
         """
         result = {
-            "location": results[0].get('geometry').get('viewport').get('northeast')
+            "location": results[0].get('geometry').get('location')
         }
         return result
 
@@ -89,6 +89,6 @@ if __name__ == "__main__":
     # print(wgoogle.request("moutarde dijon paris wiki"), type(wgoogle.request()))
     # print(wgoogle.request("chaussures tombouktou besoin marcher aller himalaya"), type(wgoogle.request()))
     # print(wgoogle.number_of_results(wgoogle.request()))
-    # print(wgoogle.coordinates(wgoogle.request()))
+    print(wgoogle.coordinates(wgoogle.request()))
     # print(wgoogle.informations(wgoogle.request()))
     # print(wgoogle.result_name(wgoogle.request()))
