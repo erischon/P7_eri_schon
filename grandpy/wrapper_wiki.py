@@ -33,7 +33,7 @@ class WrapperWiki:
                     "action": "query",
                     "list": "geosearch",
                     "gscoord": coord,
-                    "gsradius": 200,
+                    "gsradius": 500,
                     "gslimit": 1,
                     "format": "json",
                 },
