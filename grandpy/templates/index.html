@@ -4,7 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ gkey }}&libraries=&v=weekly" defer></script>
     <title>GrandPy</title>
+
+    <style type="text/css">
+        /* Set the size of the div element that contains the map */
+        #map {
+          height: 400px;
+          /* The height is 400 pixels */
+          width: 100%;
+          /* The width is the width of the web page */
+        }
+      </style>
+
+
 </head>
 <body>
     <form id="form">
@@ -19,6 +32,8 @@
         <div id="result_wiki_title">Titre Wiki</div>
         <div id="result_wiki_text">Text Wiki</div>
     </p>
+
+    <div id="map"></div>
 
 <script src="../static/script.js"></script>
 
