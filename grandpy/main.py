@@ -29,14 +29,16 @@ class GrandPy:
                 }, 
             'gcoord': {
                 'location': {
-                    'lat': 48.774788, 
-                    'lng': 2.4060011
-                    }
+                    'lat': 48.760344, 
+                    'lng': 2.387405}
                 }, 
+            'gcoord_lat': 48.760344, 
+            'gcoord_lng': 2.387405, 
             'wresult': True, 
-            'wpageid': 13553086, 
-            'wtext': 'Le cimetière nouveau de Vitry-sur-Seine est un des cimetières communaux de la commune de Vitry-sur-Seine, dans le département du Val-de-Marne.', 
-            'wtitle': 'Cimetière nouveau de Vitry-sur-Seine'
+            'wpageid': 8110453, 
+            'wtext': "L'église Saint-Leu-Saint-Gilles de Thiais est une église catholique 
+située à Thiais, en France.", 
+            'wtitle': 'Église Saint-Leu-Saint-Gilles de Thiais'
         } 
         """
         response = {}
@@ -63,6 +65,8 @@ class GrandPy:
 
         google_location_result = self.wgoogle.coordinates(google_result)
         response["gcoord"] = google_location_result
+        response["gcoord_lat"] = google_location_result.get('location').get('lat')
+        response["gcoord_lng"] = google_location_result.get('location').get('lng')
 
         # Wiki result      
         coord_result = self.wwiki.location_to_coord(google_location_result)
