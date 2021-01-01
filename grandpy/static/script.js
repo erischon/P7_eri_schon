@@ -15,6 +15,7 @@ $(document).ready(function(){
 
                 if (res["gresult"] == true) {
                     response(res)
+                    initMap(res)
                 }
                 else {
                     $("#result_name").html("Désolé je n'ai pas de réponse.");
@@ -42,4 +43,18 @@ function response(res) {
 function wikiResponse(res) {
     $("#result_wiki_title").html(res["wtitle"]);
     $("#result_wiki_text").html(res["wtext"]);
+}
+
+function initMap(res) {
+    const target = { lat: res["gcoord_lat"], lng: res["gcoord_lng"] };
+
+    const map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 15,
+        center: target,
+    });
+
+    const marker = new google.maps.Marker({
+    position: target,
+    map: map,
+    });
 }
