@@ -6,12 +6,28 @@
 {% endblock %}
 
 {% block Content %}
-    <form id="form">
-        <input type="text" id="livebox">
-        <input type="submit">
-    </form>
 
-    <p>
+    <section id="searchElement" class="search">
+        <div class="form">
+            <form id="form">
+                <input type="text" id="livebox">
+                <button class="btn" type="submit"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+    </section>
+
+    <section id="responseElement">
+        <div class="response">
+            <div id="result_query" class="result query">La requête</div>
+            <div id="result_name" class="result name">La réponse</div>
+            <div id="result_address" class="result address">L'adresse</div>
+            <div id="result_wiki_title" class="result wiki-title">Titre Wiki</div>
+            <div id="result_wiki_text" class="result wiki-text">Text Wiki</div>
+            <div id="map" class="res-map"></div>
+        </div>
+    </section>
+
+    <!-- <p>
         <div id="result_query">La requête</div>
         <div id="result_name">La réponse</div>
         <div id="result_address">L'adresse</div>
@@ -19,6 +35,6 @@
         <div id="result_wiki_text">Text Wiki</div>
     </p>
 
-    <div id="map"></div>
+    <div id="map"></div> -->
 
 {% endblock %}
