@@ -12,6 +12,11 @@ body {
     margin: auto;
 }
 
+#map {
+    height: 400px;
+    width: 90%;
+}
+
 header {
     display: flex;
     flex-direction: column;
@@ -43,70 +48,13 @@ header {
 main {
     width: 90%;
     margin: 4em 0;
-}
-
-.search {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
 }
 
-.search input {
-    border: none;
-    padding: 0.7em;
-    border-bottom: 2px solid #444444;
-    font-size: 1.1rem;
-    outline: none;
-}
 
-.search button {
-    margin: 0;
-    border: none;
-    background-color:#7F00FF;
-    padding : 0.6em;
-    font-size: 1.2rem;
-    color: #fff;
-    margin-left: 0.3em;
-    cursor: pointer;
-}
 
-#answerElement {
-    display: none;
-}
-
-.answer {
-    display: grid;
-    grid-template-areas:
-    "google"
-    "wiki"
-    "map"
-    ;
-    margin: auto;
-    max-width: 850px;
-}
-
-.ans-google {
-    grid-area: google;
-    background: #ebe8f0;
-    margin: 1em;
-    padding: 2em;
-}
-
-.ans-wiki {
-    grid-area: wiki;
-    background:  #ebe8f0;
-    margin: 1em;
-    padding: 2em;
-}
-
-.ans-map {
-    grid-area: map;
-    margin: 1em;
-    border: 1px solid #5a5a5a;
-    background-image: url(../static/img/1607434712354.png);
-    height: 400px;
-}
 
 footer {
     background: #7F00FF;
@@ -130,34 +78,4 @@ footer .name {
 footer img {
     margin-left: 0.5em;
     width: 40px;
-}
-
-@media (min-width: 550px) {
-
-    body {
-        max-width: 900px;
-        justify-content: space-between;
-    }
-
-    header {
-        flex-direction: row;
-        align-items: center;
-    }
-
-    .head {
-        text-align: left;
-    }
-
-    .answer {
-        grid-template-columns: 50% 50%;
-        grid-template-areas:
-        "google wiki"
-        "map map"
-        ;
-    }
-
-    footer {
-        max-width: 800px;
-    }
-
 }
