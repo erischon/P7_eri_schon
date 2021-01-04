@@ -12,10 +12,7 @@ body {
     margin: auto;
 }
 
-#map {
-    height: 400px;
-    width: 90%;
-}
+/* === Header Section === */
 
 header {
     display: flex;
@@ -45,6 +42,9 @@ header {
     text-align: center;
 }
 
+
+/* === Main Section === */
+
 main {
     width: 90%;
     margin: 4em 0;
@@ -54,7 +54,79 @@ main {
 }
 
 
+/* === Search Box === */
 
+.search {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.search input {
+    border: none;
+    padding: 0.7em;
+    border-bottom: 2px solid #444444;
+    font-size: 1.1rem;
+    outline: none;
+}
+
+.search button {
+    margin: 0;
+    border: none;
+    background-color:#7F00FF;
+    padding : 0.6em;
+    font-size: 1.2rem;
+    color: #fff;
+    margin-left: 0.3em;
+    cursor: pointer;
+}
+
+
+/* === Response Section === */
+
+/* #responseElement {
+    display: block;
+} */
+
+.response {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    max-width: 850px;
+    padding: 3em;
+}
+
+.res-google {
+    background: #ebe8f0;
+    margin: 1em;
+    padding: 2em;
+}
+
+.result {
+    background: #ebe8f0;
+}
+
+.res-wiki {
+    background:  #ebe8f0;
+    margin: 1em;
+    padding: 2em;
+}
+
+.res-map {
+    margin: 1em;
+    height: 100vh;
+    width: 90%;
+}
+
+/* #map {
+    height: 400px;
+    width: 90%;
+} */
+
+/* === Footer section === */
 
 footer {
     background: #7F00FF;
