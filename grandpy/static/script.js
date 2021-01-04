@@ -35,14 +35,24 @@ $(document).ready(function(){
 })
 
 function response(res) {
-    $("#result_query").html(res["query"]);
-    $("#result_name").html(res["ginfos"]["name"]);
-    $("#result_address").html(res["ginfos"]["formatted_address"]);
+    $("#result_query").html(
+        "Bonjour à vous ! Vous m'avez questionnez à propos de : " + "<strong>" + res["query"] + "</strong>"
+        );
+    $("#result_name").html(
+        "Voici ce que j'ai trouvé dans mes petites fiches bien rangées : " + "<strong>" + res["ginfos"]["name"] + "</strong>"
+        );
+    $("#result_address").html(
+        "Et c'est à cette adresse : " + "<strong>" + res["ginfos"]["formatted_address"] + "</strong>"
+        );
 }
 
 function wikiResponse(res) {
-    $("#result_wiki_title").html(res["wtitle"]);
-    $("#result_wiki_text").html(res["wtext"]);
+    $("#result_wiki_title").html(
+        "J'ai une petite info sur " + res["wtitle"] + " :"
+        );
+    $("#result_wiki_text").html(
+        "Peut-être ne le saviez-vous pas, mais " + "<strong>" + res["wtext"] + "</strong>" + " Intéressant non ?!"
+        );
 }
 
 function initMap(res) {
