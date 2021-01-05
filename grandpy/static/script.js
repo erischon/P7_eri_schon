@@ -13,6 +13,8 @@ $(document).ready(function(){
             data:{text:textinlivebox},
             success: function(res){
 
+                displayResponse()
+
                 if (res["gresult"] == true) {
                     response(res)
                     initMap(res)
@@ -68,3 +70,8 @@ function initMap(res) {
     map: map,
     });
 }
+
+function displayResponse() {
+    var x = document.getElementById("responseElement");
+    x.style.display = "block";
+  }
