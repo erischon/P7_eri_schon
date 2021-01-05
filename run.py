@@ -1,4 +1,4 @@
-from grandpy.views import app
+from grandpy import app
 
 if __name__ == "__main__":
     app.run()
