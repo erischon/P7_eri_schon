@@ -97,36 +97,20 @@ main {
     justify-content: center;
     margin: auto;
     max-width: 850px;
-    padding: 3em 1em;
+    margin-top: 3em;
+    padding: 2em;
+    background: #dbbbfc;
 }
 
 .result {
     text-align: left;
     font-size: 1.1rem;
-}
-
-.query {
-    padding: 0.5em;
-}
-
-.name {
-    padding: 0.5em;
-}
-
-.address {
-    padding: .5em;
-}
-
-.wiki-text {
-    padding: .5em;
-}
-
-.wiki-title {
-    padding: .5em;
+    padding: 0.5em 0;
 }
 
 .res-map {
-    margin: 1em;
+    /* margin: 1em; */
+    margin-top: 1em;
     height: 100vh;
     width: 100%;
 }
