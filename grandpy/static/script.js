@@ -11,9 +11,16 @@ $(document).ready(function(){
             method:"post",
             url:"/livesearch",
             data:{text:textinlivebox},
-            success: function(res){
 
-                displayResponse()
+            beforeSend: function(){
+                // Show loader
+                $("#loader").show();
+               },
+            
+            success: function(res){
+                // Show response
+
+                $("#responseElement").show();
 
                 if (res["gresult"] == true) {
                     response(res)
@@ -29,8 +36,12 @@ $(document).ready(function(){
                 else {
                     $("#result_wiki").html("Désolé, je n'ai pas trouvé d'histoire intéressante à raconter...");
                 }                
+            },
 
-            }
+            complete:function(data){
+                // Hide loader
+                $("#loader").hide();
+               }
         })
     });
 
@@ -70,8 +81,3 @@ function initMap(res) {
     map: map,
     });
 }
-
-function displayResponse() {
-    var x = document.getElementById("responseElement");
-    x.style.display = "block";
-  }
