@@ -2,3 +2,4 @@ p7_env/
 config.py
 __pycache__/
 .pytest_cache
+trial/
