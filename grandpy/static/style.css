@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
 
 body {
     font-family: 'Roboto', sans-serif;
@@ -36,21 +37,28 @@ header {
 }
 
 .subtitle {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     font-weight: 700;
     font-style: italic;
     text-align: center;
+    font-family: 'Patrick Hand', cursive;
+    margin: 0.2em;
 }
 
 
 /* === Main Section === */
 
 main {
-    width: 90%;
-    margin: 4em 0;
+    width: 95%;
+    margin: 1em 0;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+main h2 {
+    font-family: 'Patrick Hand', cursive;
+    font-size: 1.4rem;
 }
 
 
@@ -82,13 +90,17 @@ main {
     cursor: pointer;
 }
 
+#loader {
+    margin: 2em;
+}
+
 
 /* === Response Section === */
 
-#responseElement {
+/* #responseElement {
     display: none;
     text-align: left;
-}
+} */
 
 .response {
     display: flex;
