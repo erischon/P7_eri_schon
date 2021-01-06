@@ -49,7 +49,7 @@ $(document).ready(function(){
 
 function response(res) {
     $("#result_query").html(
-        "Bonjour à vous ! Vous m'avez questionnez à propos de : " + "<strong>" + res["query"] + "</strong>"
+        "Vous m'avez questionnez à propos de : " + "<strong>" + res["query"] + "</strong>"
         );
     $("#result_name").html(
         "Voici ce que j'ai trouvé dans mes petites fiches bien rangées : " + "<strong>" + res["ginfos"]["name"] + "</strong>"
