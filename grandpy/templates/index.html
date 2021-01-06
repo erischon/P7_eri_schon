@@ -7,6 +7,8 @@
 
 {% block Content %}
 
+    <h2>Bonjour, quel lieu cherches-tu ?</h2>
+
     <section id="searchElement" class="search">
         <div class="form">
             <form id="form">
@@ -16,7 +18,11 @@
         </div>
     </section>
 
-    <section id="responseElement">
+    <div id='loader' style='display: none;'>
+        <img src='../static/img/loader.gif' width='42px' height='42px'>
+    </div>
+
+    <section id="responseElement" style='display: none;'>
         <div class="response">
             <div id="result_query" class="result query"></div>
             <div id="result_name" class="result name"></div>
