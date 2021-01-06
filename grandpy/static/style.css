@@ -97,11 +97,6 @@ main h2 {
 
 /* === Response Section === */
 
-/* #responseElement {
-    display: none;
-    text-align: left;
-} */
-
 .response {
     display: flex;
     flex-direction: column;
@@ -138,7 +133,7 @@ footer {
     width:90%;
     margin-top: 2em;
     padding: 1em 2em;
-    /* position: relative;	 */
+    position: relative;	
     box-shadow: 1px -1px 5px 0px #666666;
     box-shadow: -1px 1px 5px 0px #666666;
 }
