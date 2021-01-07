@@ -9,8 +9,8 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     config = Config()
-    GKEY = config.GKEY
-    return render_template('index.html', gkey=GKEY)
+    GKEY_F = config.GKEY_F
+    return render_template('index.html', gkey=GKEY_F)
 
 @app.route('/livesearch', methods=['GET', 'POST'])
 def livesearch():
