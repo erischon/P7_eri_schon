@@ -11,8 +11,8 @@ class WrapperGoogle:
         config = Config()
         self.URL = config.GURL
         self.HEADERS = {"User-Agent": config.UAGENT}
-        self.GKEY = config.GKEY
-        self.PARAMS = {"key": config.GKEY}
+        self.GKEY = config.GKEY_B
+        self.PARAMS = {"key": config.GKEY_B}        
 
     def request(self, query="thiais"):
         """ I make the request to Google place. 
